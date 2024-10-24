@@ -3,7 +3,7 @@
 
 - Enfocado al diseño de llaveros para empresas, entre tantas otras cosas.
 
-![](https://media.printables.com/media/prints/940864/images/7189166_fd9abcb4-5182-470a-b5ee-6a14bc59f6b3_f5ff5768-3456-411a-8121-d3aab4f486cc/thumbs/inside/1600x1200/jpeg/img_8398.webp)
+![Logo](https://raw.githubusercontent.com/Josemiranda989/DPFS-printAll/refs/heads/main/info/design/printall.png)
 
 ### Paginas de referencia
 
@@ -22,6 +22,9 @@
 
 ### Fuente
 [Afacad Flux](https://fonts.google.com/specimen/Afacad+Flux)
+
+### Wireframe
+[Wireframe Miro](https://miro.com/app/board/uXjVLPQKDaY=/?share_link_id=353989382563)
 
 
 ##### José Miranda
