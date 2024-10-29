@@ -26,5 +26,8 @@
 ### Wireframe
 [Wireframe Miro](https://miro.com/app/board/uXjVLPQKDaY=/?share_link_id=353989382563)
 
+### Trello
+[Trello](https://trello.com/b/P20UN0sx/dpfsprintall)
+
 
 ##### José Miranda
