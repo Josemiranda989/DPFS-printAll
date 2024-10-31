@@ -1,3 +1,35 @@
-img {
-    width: 500px;
+:root {
+    --black: #041122;
+    --grey: #5e5e5e;
+    --primary: #259073;
+    --secondary: #7fda89;
+    --green-lite: #c8e98e;
+    --white: hsl(72, 56%, 95%);
+  }
+
+.banner {
+    height: 300px;
+    background-image: url("./images/banner.jpg");
+    background-size: contain;
+}
+
+.banner button {
+    background-color: var(--primary);
+    color: var(--white);
+    font-size: 24px;
+}
+
+.card {
+    border: 1px solid var(--grey);
+    width: 220px;
+}
+.card img {
+    width: 200px;
+}
+
+.btn {
+    background-color: var(--primary);
+    color:var(--white);
+    font-size: 28px;
+
 }

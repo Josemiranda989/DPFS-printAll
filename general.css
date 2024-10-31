@@ -1,4 +1,55 @@
-body {
-    background-color: #ecf1f2;
-    color: rgb(18, 19, 20);
+:root {
+  --black: #041122;
+  --grey: #5e5e5e;
+  --primary: #259073;
+  --secondary: #7fda89;
+  --green-lite: #c8e98e;
+  --white: hsl(72, 56%, 95%);
 }
+
+body {
+  background-color: var(--white);
+  font-family:  "Itim", cursive;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: var(--white);
+    text-decoration:none;
+}
+
+.navbar__top {
+    background-color: var(--primary);
+}
+
+.top__icon{
+    color: var(--white);
+    font-size: 24px
+}
+
+.navbar__bottom {
+    background-color: var(--grey);
+}
+
+.navbar__logo {
+    width: 200px
+}
+
+.navbar__links {
+    color: var(--white);
+    font-size: 28px;
+}
+
+.footer {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.footer a {
+    font-size: 24px;
+}
+
+

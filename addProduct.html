@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>printAll</title>
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="./general.css" />
+    <link rel="stylesheet" href="./home.css" />
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -13,15 +16,21 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Itim&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Navbar -->
-    <nav>
-      <div>
+    <nav class="navbar">
+      <div class="navbar__top">
         <input type="text" placeholder="Pikachu..." />
 
-        <ul type="none">
-          <!-- REEMPLAZAR TYPE POR CSS -->
+        <ul class="top__icon">
           <li>
             <i class="fa-solid fa-message"></i>
           </li>
@@ -33,16 +42,15 @@
           </li>
         </ul>
       </div>
-      <div>
+      <div class="navbar__bottom">
         <a href="http://instagram.com/printall.tuc">
-          <img src="./images/printall.png" width="120px" alt="Logo" />
-          <!-- REEMPLAZAR WIDTH POR CSS -->
+          <img class="navbar__logo" src="./images/printall.png" alt="Logo" />
         </a>
-        <ul type="none">
-          <li>3d Models</li>
-          <li>Store</li>
-          <li>Brands</li>
-          <li>Blogs</li>
+        <ul class="navbar__links">
+          <li><a href="https://facebook.com">3d Models</a></li>
+          <li><a href="https://facebook.com">Store</a></li>
+          <li><a href="https://facebook.com">Brand</a>s</li>
+          <li><a href="https://facebook.com">Blogs</a></li>
         </ul>
       </div>
     </nav>
@@ -128,15 +136,15 @@
       </form>
     </main>
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
       <a href="http://instagram.com/printall.tuc">printAll.com.ar</a>
-      <ul type="none">
+      <ul>
         <li><a href="https://google.com.ar" target="_blank">Link1</a></li>
         <li><a href="https://google.com.ar" target="_blank">Link2</a></li>
         <li><a href="https://google.com.ar" target="_blank">Link3</a></li>
         <li><a href="https://google.com.ar" target="_blank">Link4</a></li>
       </ul>
-      <ul type="none">
+      <ul>
         <li><i class="fa-brands fa-square-instagram"></i></li>
         <li><i class="fa-brands fa-square-facebook"></i></li>
         <li><i class="fa-brands fa-square-whatsapp"></i></li>
