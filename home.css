@@ -8,9 +8,13 @@
   }
 
 .banner {
-    height: 300px;
+    height: 250px;
     background-image: url("./images/banner.jpg");
     background-size: contain;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .banner button {
@@ -18,18 +22,46 @@
     color: var(--white);
     font-size: 24px;
 }
+.container { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+    margin: 20px 0;
+}
+
+section h2 { 
+    text-align:center;
+
+}
+
+.cards__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
 
 .card {
-    border: 1px solid var(--grey);
-    width: 220px;
+    background-color: white;
+    width: 85%;
+    max-width: 400px;
+
 }
 .card img {
-    width: 200px;
+    width: 100%;
+}
+
+.card div {
+    margin: 10px;
 }
 
 .btn {
     background-color: var(--primary);
     color:var(--white);
-    font-size: 28px;
-
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    border-radius:5px;
+    border: none;
+    box-shadow: 10px 5px 5px var(--grey);
 }
