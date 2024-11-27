@@ -1,0 +1,14 @@
+{
+  "name": "dpfs-printall",
+  "version": "1.0.0",
+  "description": "- Este proyecto va destinado a la venta de productos impresos en 3d en la provincia de Tucuman.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}

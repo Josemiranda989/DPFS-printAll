@@ -29,5 +29,18 @@
 ### Trello
 [Trello](https://trello.com/b/P20UN0sx/dpfsprintall)
 
+### Pasos para creacion de un servidor con express
+Inicializar proyecto con npm
+
+```
+npm init -y
+```
+Instalar express ( servidor de node)
+```
+npm install express
+```
+
+Crear app.js con la configuracion de express (puerto que va a escuchar, los recursos estaticos y que va a devolver cada ruta)
+
 
 ##### José Miranda
