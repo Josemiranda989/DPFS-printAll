@@ -1,19 +1,27 @@
 const express = require("express");
+const path = require("path");
 const app = express();
 const port = 4000;
 
-// setea carpeta publica o estatica
+// Setea carpeta publica o estatica
 app.use(express.static(__dirname + "/public"));
+// Ejs config
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+// Config form
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-// primera ruta que envia home.html
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/views/home.html");
-});
+const mainRoutes = require("./routes/main.routes");
+const productsRoutes = require("./routes/products.routes");
+const usersRoutes = require("./routes/users.routes");
 
-app.get("/addProduct", (req, res) => {
-  res.sendFile(__dirname + "/views/addProduct.html");
-});
+app.use("/", mainRoutes);
+app.use("/products", productsRoutes);
+app.use("/users", usersRoutes);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`
+    Server running in:
+    http://localhost:${port}`);
 });
