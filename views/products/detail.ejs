@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('../partials/head.ejs', {style: "detail"}) %>
+  <body>
+    <!-- Navbar -->
+    <%- include('../partials/navbar.ejs') %>
+    <!-- Main -->
+    <% if (prodFound) { %>
+    <main>
+      <div class="container">
+        <div class="detail">
+          <h1>Producto: <%= prodFound.name %></h1>
+          <h4>Precio: $<%= prodFound.price %></h4>
+          <p>Material: <%= prodFound.filament %></p>
+        </div>
+        <img
+          src="/images/products/<%= prodFound.image %>"
+          alt="<%= prodFound.name %>"
+        />
+      </div>
+      <div class="buttons">
+        <a class="btn btn__update" href="/products/edit/<%= prodFound.id %>"
+          >Editar producto</a
+        >
+        <a class="btn btn__delete" href="">Eliminar</a>
+      </div>
+    </main>
+
+    <% } else { %>
+    <main class="container">
+      <h1>El producto que buscas no existe</h1>
+    </main>
+    <% } %>
+
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

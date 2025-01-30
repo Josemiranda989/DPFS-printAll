@@ -6,12 +6,18 @@
     <%- include('../partials/navbar.ejs') %>
     <!-- Main -->
     <main>
-      <h1>Nuevo Producto</h1>
+      <h1>Editar Producto: <%= prodFound.name %></h1>
 
-      <form action="/products/add" method="post" enctype="multipart/form-data">
+      <form method="post"  action="/products/edit/<%= prodFound.id %>?_method=PUT" enctype="multipart/form-data">
         <div>
           <label for="name">Nombre</label>
-          <input type="text" name="name" id="name" placeholder="Vaso 500ML" />
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Vaso 500ML"
+            value="<%= prodFound.name %>"
+          />
         </div>
 
         <div>
@@ -20,29 +26,29 @@
             name="description"
             id="descripcion"
             placeholder="Impreso en PLA multicolor..."
-          ></textarea>
+          >
+<%= prodFound.description %></textarea
+          >
         </div>
 
         <div>
           <label for="category">Categoria</label>
           <select name="category" id="category">
-            <option selected disabled>Selecciona una opcion</option>
-            <option value="hogar">Hogar</option>
-            <option value="geek">Geek</option>
-            <option value="figuras">Figuras</option>
-            <option value="soportes">Soportes</option>
+            <option value="hogar" <%= prodFound.category == "hogar" ? "selected" : "" %>>Hogar</option>
+            <option value="geek" <%= prodFound.category == "geek" ? "selected" : "" %>>Geek</option>
+            <option value="figuras" <%= prodFound.category == "figuras" ? "selected" : "" %>>Figuras</option>
+            <option value="soportes" <%= prodFound.category == "soportes" ? "selected" : "" %>>Soportes</option>
           </select>
         </div>
 
         <div>
           <label for="colors">Color</label>
           <select name="colors" id="colors">
-            <option selected disabled>Selecciona una opcion</option>
-            <option value="#ffffff">Blanco</option>
-            <option value="#2dc548">Verde</option>
-            <option value="#ff2d00">Rojo</option>
-            <option value="#eaf500">Amarillo</option>
-            <option value="#1300f5">Azul</option>
+            <option value="#ffffff" <%= prodFound.colors == "#ffffff" ? "selected" : "" %>>Blanco</option>
+            <option value="#2dc548" <%= prodFound.colors =="#2dc548" ? "selected" : "" %>>Verde</option>
+            <option value="#ff2d00" <%= prodFound.colors =="#ff2d00"? "selected" : "" %>>Rojo</option>
+            <option value="#eaf500" <%= prodFound.colors =="#eaf500"? "selected" : "" %>>Amarillo</option>
+            <option value="#1300f5" <%= prodFound.colors == "#1300f5" ? "selected" : "" %>>Azul</option>
           </select>
         </div>
 
@@ -74,15 +80,15 @@
 
         <div>
           <label for="price">Precio</label>
-          <input type="number" name="price" id="price" />
+          <input type="number" name="price" id="price"  value="<%= prodFound.price %>"/>
         </div>
 
         <div>
           <label for="available">Disponible</label>
-          <input type="checkbox" name="available" id="available" />
+          <input type="checkbox" name="available" id="available" <%= prodFound.available ==  "on" ? "checked" : "" %>/>
         </div>
 
-        <button type="submit">Crear</button>
+        <button type="submit">EDITAR</button>
       </form>
     </main>
     <!-- Footer -->

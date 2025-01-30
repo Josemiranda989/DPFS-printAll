@@ -1,4 +1,5 @@
 const express = require("express");
+const methodOverride = require("method-override");
 const path = require("path");
 const app = express();
 const port = 4000;
@@ -11,6 +12,8 @@ app.set("views", path.join(__dirname, "views"));
 // Config form
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+// Agregamos put y delete
+app.use(methodOverride("_method"));
 
 const mainRoutes = require("./routes/main.routes");
 const productsRoutes = require("./routes/products.routes");

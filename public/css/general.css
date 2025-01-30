@@ -8,93 +8,102 @@
 }
 
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
   background-color: var(--white);
-  font-family:  "Itim", cursive;
+  font-family: "Itim", cursive;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 a {
-    color: var(--white);
-    text-decoration:none;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.btn {
+  background-color: var(--primary);
+  color: var(--white);
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 10px 5px 5px var(--grey);
 }
 
 /* Navbar */
 .navbar__top {
-    background-color: var(--primary);
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 10px;
+  background-color: var(--primary);
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
 }
 
-.top__icon{
-    color: var(--white);
-    font-size: 1.5rem;
-    display: flex;
-    gap:10px
+.top__icon {
+  color: var(--white);
+  font-size: 1.5rem;
+  display: flex;
+  gap: 10px;
 }
 
 .navbar__bottom {
-    background-color: var(--grey);
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
+  background-color: var(--grey);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
 }
 
 .navbar__logo {
-    width:150px
+  width: 150px;
 }
 
 .navbar__links {
-    color: var(--white);
-    font-size: 1.2rem;
-    display: flex;
-    gap: 5px
+  color: var(--white);
+  font-size: 1.2rem;
+  display: flex;
+  gap: 5px;
 }
 
-@media (min-width: 400px){
-    .navbar__links{
-        font-size: 0.8rem;
-    }
+@media (min-width: 400px) {
+  .navbar__links {
+    font-size: 0.8rem;
+  }
 }
 
 /* Footer */
 
 .footer {
-    background-color: var(--black);
-    color: var(--white);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 0;
+  background-color: var(--black);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
 }
 
-.link__printAll { 
-    display: none;
+.link__printAll {
+  display: none;
 }
 
 .footer a {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
-.socials__icons{
-    display: flex;
-    font-size: 2.5rem;
-    gap: 5px;
+.socials__icons {
+  display: flex;
+  font-size: 2.5rem;
+  gap: 5px;
 }
 
-@media (min-width: 400px){
-    .link__printAll { 
-        display: block;
-    }
+@media (min-width: 400px) {
+  .link__printAll {
+    display: block;
+  }
 }
-
