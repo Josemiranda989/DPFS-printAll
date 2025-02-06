@@ -5,10 +5,14 @@
     <!-- Navbar -->
     <%- include('../partials/navbar.ejs') %>
     <!-- Main -->
-    <main>
+    <main class="container">
       <h1>Registrarse</h1>
 
-      <form action="/" method="get">
+      <form
+        action="/users/register"
+        method="post"
+        enctype="multipart/form-data"
+      >
         <div>
           <label for="name">Nombre</label>
           <input

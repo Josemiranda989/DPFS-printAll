@@ -26,4 +26,5 @@ main img {
 
 .btn__delete {
   background-color: rgb(255, 47, 0);
+  cursor: pointer;
 }

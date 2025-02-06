@@ -7,7 +7,6 @@ module.exports = {
   addForm: (req, res) => {
     res.render("products/add");
   },
-  //! TODO AGREGAR ID A LA CREACION
   store: (req, res) => {
     let products = JSON.parse(fs.readFileSync(productsPath, "utf-8"));
 
@@ -76,6 +75,27 @@ module.exports = {
       (prodFound.image = req.file?.filename || prodFound.image);
 
     fs.writeFileSync(productsPath, JSON.stringify(products, null, "  "));
+    res.redirect("/");
+  },
+
+  destroy: (req, res) => {
+    // 1.Traer el listado de productos en una variable
+    let products = JSON.parse(fs.readFileSync(productsPath, "utf-8"));
+    // 2.Eliminar Imagen
+    let productToDelete = products.find((prod) => prod.id == req.params.id);
+    if (productToDelete.image != "default.png") {
+      fs.unlinkSync(
+        path.join(
+          __dirname,
+          `../public/images/products/${productToDelete.image}`
+        )
+      );
+    }
+    // 3.Actualizar el listado excluyendo que coincide con el id a eliminar
+    products = products.filter((prod) => prod.id != req.params.id);
+    // 4.Sobreescribir json
+    fs.writeFileSync(productsPath, JSON.stringify(products, null, "  "));
+    // 5.Redireccionar
     res.redirect("/");
   },
 };

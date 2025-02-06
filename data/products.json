@@ -1,38 +1,14 @@
 [
   {
     "id": 1,
-    "name": "Escudo de River",
-    "description": "impreso varios colores en misma capa",
-    "category": "geek",
-    "colors": "#ff2d00",
+    "name": "Escudo",
+    "description": "Escudo multicolor",
+    "category": "hogar",
+    "colors": "#ffffff",
     "filament": "pla",
     "size": "M",
     "price": "100",
     "available": "on",
-    "image": "prod-1738093542902.png"
-  },
-  {
-    "id": 2,
-    "name": "Molde 3d ",
-    "description": "fdsfferq",
-    "category": "geek",
-    "colors": "#ffffff",
-    "filament": "pla",
-    "size": "M",
-    "price": "501",
-    "available": "off",
-    "image": "prod-1738267978350.png"
-  },
-  {
-    "id": 3,
-    "name": "Gancho para bolsitas",
-    "description": "Impreso en material apto para comestibles",
-    "category": "hogar",
-    "colors": "#ffffff",
-    "filament": "abs",
-    "size": "M",
-    "price": "4000",
-    "available": "on",
-    "image": "prod-1738263000359.png"
+    "image": "prod-1738867849289.png"
   }
 ]

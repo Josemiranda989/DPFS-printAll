@@ -22,7 +22,13 @@
         <a class="btn btn__update" href="/products/edit/<%= prodFound.id %>"
           >Editar producto</a
         >
-        <a class="btn btn__delete" href="">Eliminar</a>
+        <!-- Form para eliminar producto -->
+        <form
+          action="/products/delete/<%= prodFound.id %>?_method=DELETE"
+          method="post"
+        >
+          <button class="btn btn__delete" href="">Eliminar</button>
+        </form>
       </div>
     </main>
 

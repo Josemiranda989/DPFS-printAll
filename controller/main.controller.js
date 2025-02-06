@@ -8,4 +8,8 @@ module.exports = {
     const products = JSON.parse(fs.readFileSync(productsPath, "utf-8"));
     res.render("home.ejs", { products });
   },
+  helloWorld: (req, res) => {
+    const products = JSON.parse(fs.readFileSync(productsPath, "utf-8"));
+    res.json(products);
+  },
 };

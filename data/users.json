@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "id": 1,
+    "name": "José Miranda",
+    "email": "josemiranda989@gmail.com",
+    "direction": "Belgrano 230",
+    "phonenumber": "03816563940",
+    "password": "$2a$10$kd.bmYEQb2R0xNanQqtjeOpPsgj2jZ8ObpKbHc8H.OULWqpUc6U1i",
+    "avatar": "default.png"
+  },
+  {
+    "id": 2,
+    "name": "José Miranda",
+    "email": "josemiranda989@gmail.com",
+    "direction": "Belgrano 230",
+    "phonenumber": "03816563940",
+    "password": "$2a$10$xPAgUFAnHnOtDSVc0GPn2u/YSyNzgdm9HJIiY3ZbUGP/cGwPNiRi2",
+    "avatar": "default.png"
+  },
+  {
+    "id": 3,
+    "name": "José Miranda",
+    "email": "josemiranda989@gmail.com",
+    "direction": "Belgrano 230",
+    "phonenumber": "03816563940",
+    "password": "$2a$10$AvtnkPYOVTxCkVYK1YRMROZMzoJXGroTmt/EbTHA6BypelLKcgHNW",
+    "avatar": "avatar-1738871536627.png"
+  },
+  {
+    "id": 4,
+    "name": "José Miranda",
+    "email": "josemiranda989@gmail.com",
+    "direction": "Belgrano 230",
+    "phonenumber": "03816563940",
+    "password": "$2a$10$fs7/I.ApDRJb.h9NWK/8K.AojHUxYManY73TNSsK9z3IdNbaPNTTy",
+    "avatar": "avatar-1738871631264.png"
+  }
+]
