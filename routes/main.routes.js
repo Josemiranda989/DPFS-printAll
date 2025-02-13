@@ -4,7 +4,7 @@ const router = express.Router();
 
 // Home
 router.get("/", home);
-// HelloWorld
+// HelloWorld apto para admins
 router.get("/hello", helloWorld);
 
 module.exports = router;

@@ -55,6 +55,7 @@ module.exports = {
       phonenumber,
       password: bcryptjs.hashSync(password, 10),
       avatar: req.file?.filename || "default.png",
+      role: "user",
     };
     users.push(newUser);
 

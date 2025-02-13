@@ -7,6 +7,10 @@ const session = require("express-session");
 const userLogged = require("./middlewares/userLogged");
 const port = 4000;
 
+/* Para ver logs de las peticiones
+const morgan = require("morgan");
+app.use(morgan("tiny")); */
+
 // Setea carpeta publica o estatica
 app.use(express.static(__dirname + "/public"));
 // Session
@@ -33,6 +37,10 @@ const usersRoutes = require("./routes/users.routes");
 app.use("/", mainRoutes);
 app.use("/products", productsRoutes);
 app.use("/users", usersRoutes);
+
+app.use(function (req, res) {
+  res.status(404).render("not-found.ejs", { title: "No encontrado" });
+});
 
 app.listen(port, () => {
   console.log(`

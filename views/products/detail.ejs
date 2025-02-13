@@ -18,6 +18,7 @@
           alt="<%= prodFound.name %>"
         />
       </div>
+      <% if (locals.isAdmin) { %>
       <div class="buttons">
         <a class="btn btn__update" href="/products/edit/<%= prodFound.id %>"
           >Editar producto</a
@@ -30,6 +31,7 @@
           <button class="btn btn__delete" href="">Eliminar</button>
         </form>
       </div>
+      <% } %>
     </main>
 
     <% } else { %>
