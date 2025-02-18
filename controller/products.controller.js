@@ -64,15 +64,15 @@ module.exports = {
 
     let prodFound = products.find((prod) => prod.id == req.params.id);
 
-    (prodFound.name = name || prodFound.name),
-      (prodFound.description = description || prodFound.description),
-      (prodFound.category = category || prodFound.category),
-      (prodFound.colors = colors || prodFound.colors),
-      (prodFound.filament = filament || prodFound.filament),
-      (prodFound.size = size || prodFound.size),
-      (prodFound.price = price || prodFound.price),
-      (prodFound.available = available || prodFound.available),
-      (prodFound.image = req.file?.filename || prodFound.image);
+    prodFound.name = name || prodFound.name;
+    prodFound.description = description || prodFound.description;
+    prodFound.category = category || prodFound.category;
+    prodFound.colors = colors || prodFound.colors;
+    prodFound.filament = filament || prodFound.filament;
+    prodFound.size = size || prodFound.size;
+    prodFound.price = price || prodFound.price;
+    prodFound.available = available || prodFound.available;
+    prodFound.image = req.file?.filename || prodFound.image;
 
     fs.writeFileSync(productsPath, JSON.stringify(products, null, "  "));
     res.redirect("/");

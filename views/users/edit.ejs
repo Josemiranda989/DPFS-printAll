@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('../partials/head.ejs', {style: "home"}) %>
+  <body>
+    <!-- Navbar -->
+    <%- include('../partials/navbar.ejs') %>
+    <!-- Main -->
+    <main class="container">
+      <h1>Actualizar perfil</h1>
+
+      <form action="/users/edit/<%= user.id %>?_method=PUT" <%="user.id" %>
+        method="POST" enctype="multipart/form-data" >
+        <div>
+          <label for="name">Nombre</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Lucas Padilla"
+            value="<%= user.name %>"
+          />
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="lucas@dh.com"
+            value="<%= user.email %>"
+          />
+        </div>
+
+        <div>
+          <label for="direction">Direccion</label>
+          <input
+            type="text"
+            name="direction"
+            id="direction"
+            placeholder="Siempre viva 123"
+            value="<%= user.direction %>"
+          />
+        </div>
+
+        <div>
+          <label for="phonenumber">Teléfono</label>
+          <input
+            type="number"
+            name="phonenumber"
+            id="phonenumber"
+            value="<%= user.phonenumber %>"
+          />
+        </div>
+
+        <div>
+          <label for="avatar">Foto Perfil</label>
+          <input type="file" name="avatar" id="avatar" />
+        </div>
+
+        <div>
+          <label for="password">Contraseña</label>
+          <input type="password" name="password" id="password" />
+        </div>
+
+        <button type="submit">Actualizar</button>
+      </form>
+    </main>
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

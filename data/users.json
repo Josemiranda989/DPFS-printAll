@@ -8,25 +8,5 @@
     "password": "$2a$10$yT7JVk9BVBksW58UrRx6auSNjFuMVV0.AdP3axYBfRX3E9IfLXJoC",
     "avatar": "default.png",
     "role": "admin"
-  },
-  {
-    "id": 2,
-    "name": "Quinlan Brewer",
-    "email": "talory@mailinator.com",
-    "direction": "Delectus reprehende",
-    "phonenumber": "16",
-    "password": "$2a$10$tN5F3DkDkChHxn0zNl41SeVLDfowoJlfJpQyXNCoFYUUlMD0Uzg7a",
-    "avatar": "avatar-1739305358859.png",
-    "role": "user"
-  },
-  {
-    "id": 3,
-    "name": "Tamekah Clemons",
-    "email": "test@gmail.com",
-    "direction": "Aperiam obcaecati es",
-    "phonenumber": "311",
-    "password": "$2a$10$8cQquXH5o7ces5OYLLpvBOEQxjl66yJgPZaUE1ujIR72IDYzPAqT2",
-    "avatar": "default.png",
-    "role": "user"
   }
 ]

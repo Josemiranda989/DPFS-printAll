@@ -6,6 +6,9 @@ const {
   processLogin,
   profile,
   logout,
+  edit,
+  processUpdate,
+  destroy,
 } = require("../controller/users.controller");
 const { uploadUser } = require("../middlewares/multer");
 const loggedAuth = require("../middlewares/loggedAuth");
@@ -21,6 +24,11 @@ router.get("/register", loggedAuth, register);
 router.post("/register", uploadUser.single("avatar"), processRegister);
 // Vista de perfil
 router.get("/profile", guestAuth, profile);
+// Formulario para actualizar perfil
+router.get("/edit/:id", guestAuth, edit);
+router.put("/edit/:id", uploadUser.single("avatar"), processUpdate);
+// Delete user
+router.delete("/delete/:id", destroy);
 // Logout process
 router.get("/logout", guestAuth, logout);
 
