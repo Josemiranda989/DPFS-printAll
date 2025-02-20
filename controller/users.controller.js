@@ -1,6 +1,8 @@
 const bcryptjs = require("bcryptjs");
 const path = require("path");
 const fs = require("fs");
+const { validationResult } = require("express-validator");
+const User = require("../services/User");
 
 const usersPath = path.join(__dirname, "../data/users.json");
 
@@ -9,34 +11,54 @@ module.exports = {
     res.render("users/login");
   },
   processLogin: (req, res) => {
-    //! Validaciones PENDIENTE
-    // Verificar que el mail exista
-    let users = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
-    let userToLogin = users.find((user) => user.email == req.body.email);
-    if (userToLogin) {
-      // Comparar contraseñas
-      let passOk = bcryptjs.compareSync(
-        req.body.password,
-        userToLogin.password
-      );
-      if (passOk) {
-        // borrar password previo a la creacion de la sesion
-        delete userToLogin.password;
-        // Generar una sesion
-        req.session.userLogged = userToLogin;
-        // Recordar usuario
-        if (req.body.rememberme == "on") {
-          res.cookie("email", userToLogin.email, { maxAge: 60 * 1000 * 60 });
+    const resultValidation = validationResult(req);
+    // console.log(resultValidation.mapped());
+
+    if (resultValidation.isEmpty()) {
+      // Verificar que el mail exista
+      let userToLogin = User.findByField("email", req.body.email);
+      if (userToLogin) {
+        // Comparar contraseñas
+        let passOk = bcryptjs.compareSync(
+          req.body.password,
+          userToLogin.password
+        );
+        if (passOk) {
+          // borrar password previo a la creacion de la sesion
+          delete userToLogin.password;
+          // Generar una sesion
+          req.session.userLogged = userToLogin;
+          // Recordar usuario
+          if (req.body.rememberme == "on") {
+            res.cookie("email", userToLogin.email, { maxAge: 60 * 1000 * 60 });
+          }
+          // Redireccione a la vista de perfil
+          return res.redirect("/users/profile");
         }
-        // Redireccione a la vista de perfil
-        return res.redirect("/users/profile");
+        return res.render("users/login", {
+          errors: {
+            password: {
+              msg: "Credenciales inválidas PASSWORD",
+            },
+          },
+          old: req.body,
+        });
+      } else {
+        // Si el email no lo encuentra
+        return res.render("users/login", {
+          errors: {
+            password: {
+              msg: "Credenciales inválidas",
+            },
+            old: req.body,
+          },
+        });
       }
-      console.log("Las credenciales son incorrectas");
-      return res.redirect("/users/login");
     } else {
-      // Si el email no lo encuentra
-      console.log("El mail no existe en nuestra DB");
-      return res.redirect("/users/login");
+      return res.render("users/login", {
+        errors: resultValidation.mapped(),
+        old: req.body,
+      });
     }
   },
 
@@ -44,7 +66,7 @@ module.exports = {
     res.render("users/register");
   },
   processRegister: (req, res) => {
-    let users = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
+    let users = User.findAll();
     const { name, email, direction, phonenumber, password } = req.body;
 
     let newUser = {
@@ -67,9 +89,7 @@ module.exports = {
     res.render("users/profile", { user: req.session.userLogged });
   },
   edit: (req, res) => {
-    const { id } = req.params;
-    let users = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
-    let userFound = users.find((user) => user.id == id);
+    let userFound = User.findById(req.params.id);
     if (userFound) {
       return res.render("users/edit", { user: userFound });
     }
@@ -79,14 +99,8 @@ module.exports = {
   },
   processUpdate: (req, res) => {
     let users = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
-    const { id } = req.params;
-
     const { name, email, direction, phonenumber, password } = req.body;
-
-    console.log("valor de password", password);
-    console.log(typeof password);
-
-    let userFound = users.find((user) => user.id == id);
+    let userFound = User.findById(req.params.id);
 
     userFound.name = name;
     userFound.email = email;

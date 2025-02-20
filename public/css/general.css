@@ -107,3 +107,8 @@ a {
     display: block;
   }
 }
+
+.error {
+  color: tomato;
+  font-size: 0.7rem;
+}
