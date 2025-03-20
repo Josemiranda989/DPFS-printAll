@@ -3,6 +3,7 @@ const path = require("path");
 
 const productsPath = path.join(__dirname, "../data/products.json");
 
+
 module.exports = {
   addForm: (req, res) => {
     res.render("products/add");

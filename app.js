@@ -5,12 +5,13 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const userLogged = require("./middlewares/userLogged");
+const db = require("./database/models");
 const port = 4000;
 
-/* Para ver logs de las peticiones
+/* // Para ver logs de las peticiones
 const morgan = require("morgan");
-app.use(morgan("tiny")); */
-
+app.use(morgan("tiny"));
+ */
 // Setea carpeta publica o estatica
 app.use(express.static(__dirname + "/public"));
 // Session
@@ -42,7 +43,10 @@ app.use(function (req, res) {
   res.status(404).render("not-found.ejs", { title: "No encontrado" });
 });
 
-app.listen(port, () => {
+app.listen(port, async () => {
+  // await db.sequelize.sync({ force: true });
+  // console.log("All models were synchronized successfully.");
+
   console.log(`
     Server running in:
     http://localhost:${port}`);
