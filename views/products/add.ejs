@@ -27,22 +27,9 @@
           <label for="category">Categoria</label>
           <select name="category" id="category">
             <option selected disabled>Selecciona una opcion</option>
-            <option value="hogar">Hogar</option>
-            <option value="geek">Geek</option>
-            <option value="figuras">Figuras</option>
-            <option value="soportes">Soportes</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="colors">Color</label>
-          <select name="colors" id="colors">
-            <option selected disabled>Selecciona una opcion</option>
-            <option value="#ffffff">Blanco</option>
-            <option value="#2dc548">Verde</option>
-            <option value="#ff2d00">Rojo</option>
-            <option value="#eaf500">Amarillo</option>
-            <option value="#1300f5">Azul</option>
+            <% categories.forEach(category => { %>
+            <option value="<%= category.id %>"><%= category.name %></option>
+            <% }) %>
           </select>
         </div>
 
@@ -50,9 +37,9 @@
           <label for="filament">Filamento</label>
           <select name="filament" id="filament">
             <option selected disabled>Selecciona una opcion</option>
-            <option value="pla">PLA</option>
-            <option value="tpu">TPU</option>
-            <option value="abs">ABS</option>
+            <% filaments.forEach(filament => { %>
+            <option value="<%= filament.id %>"><%= filament.name %></option>
+            <% }) %>
           </select>
         </div>
 
@@ -65,10 +52,9 @@
           <label for="size">Tamaño</label>
           <select name="size" id="size">
             <option selected disabled>Selecciona una opcion</option>
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-            <option value="XL">XL</option>
+            <% sizes.forEach(size => { %>
+            <option value="<%= size.id %>"><%= size.name %></option>
+            <% }) %>
           </select>
         </div>
 
@@ -79,7 +65,7 @@
 
         <div>
           <label for="available">Disponible</label>
-          <input type="checkbox" name="available" id="available" />
+          <input type="checkbox" name="available" id="available" checked />
         </div>
 
         <button type="submit">Crear</button>

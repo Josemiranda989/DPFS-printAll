@@ -143,21 +143,19 @@ module.exports = {
     res.redirect("/");
   },
 
-  destroy: (req, res) => {
-    //! PENDIENTE
-    // 1.Traer el listado de usuarios en una variable
-    let users = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
+  destroy: async (req, res) => {
     // 2.Eliminar Imagen
-    let userToDelete = users.find((user) => user.id == req.params.id);
+    let userToDelete = await db.User.findByPk(req.params.id);
     if (userToDelete.avatar != "default.png") {
       fs.unlinkSync(
         path.join(__dirname, `../public/images/users/${userToDelete.avatar}`)
       );
     }
-    // 3.Actualizar el listado excluyendo que coincide con el id a eliminar
-    users = users.filter((user) => user.id != req.params.id);
-    // 4.Sobreescribir json
-    fs.writeFileSync(usersPath, JSON.stringify(users, null, "  "));
+    await db.User.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
     // 4.1 Limpiar session y cookies
     res.clearCookie("email");
     req.session.destroy();
