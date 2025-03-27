@@ -3,12 +3,16 @@ const path = require("path");
 
 const productsPath = path.join(__dirname, "../data/products.json");
 
+const db = require("../database/models");
 
 module.exports = {
   addForm: (req, res) => {
+    //* Ok
     res.render("products/add");
   },
   store: (req, res) => {
+    //! PENDIENTE
+
     let products = JSON.parse(fs.readFileSync(productsPath, "utf-8"));
 
     const {
@@ -40,17 +44,24 @@ module.exports = {
 
     res.redirect("/");
   },
-  detail: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsPath, "utf-8"));
-    let prodFound = products.find((prod) => prod.id == req.params.id);
-    res.render("products/detail", { prodFound });
+  detail: async (req, res) => {
+    //* Ok
+    try {
+      // Paso 1
+      let prodFound = await db.Product.findByPk(req.params.id);
+      // Paso 2
+      res.render("products/detail", { prodFound });
+    } catch (error) {
+      console.log(error);
+    }
   },
-  editForm: (req, res) => {
-    let products = JSON.parse(fs.readFileSync(productsPath, "utf-8"));
-    let prodFound = products.find((prod) => prod.id == req.params.id);
+  editForm: async (req, res) => {
+    //* Ok
+    let prodFound = await db.Product.findByPk(req.params.id);
     res.render("products/edit", { prodFound });
   },
   update: (req, res) => {
+    //! PENDIENTE
     let products = JSON.parse(fs.readFileSync(productsPath, "utf-8"));
     const {
       name,
@@ -79,11 +90,11 @@ module.exports = {
     res.redirect("/");
   },
 
-  destroy: (req, res) => {
-    // 1.Traer el listado de productos en una variable
-    let products = JSON.parse(fs.readFileSync(productsPath, "utf-8"));
-    // 2.Eliminar Imagen
-    let productToDelete = products.find((prod) => prod.id == req.params.id);
+  destroy: async (req, res) => {
+    //* Ok
+    /*     
+    // Opcional para otro caso
+    let productToDelete = await db.Product.findByPk(req.params.id);
     if (productToDelete.image != "default.png") {
       fs.unlinkSync(
         path.join(
@@ -92,10 +103,16 @@ module.exports = {
         )
       );
     }
-    // 3.Actualizar el listado excluyendo que coincide con el id a eliminar
-    products = products.filter((prod) => prod.id != req.params.id);
-    // 4.Sobreescribir json
-    fs.writeFileSync(productsPath, JSON.stringify(products, null, "  "));
+       */
+
+    const productDelete = await db.Product.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    console.log("prodBorrado", productDelete);
+
     // 5.Redireccionar
     res.redirect("/");
   },

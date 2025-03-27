@@ -12,5 +12,12 @@ module.exports = (sequelize, DataTypes) => {
 
   const Filament = sequelize.define(alias, cols, config);
 
+  Filament.associate = (model) => {
+    Filament.hasMany(model.Product, {
+      as: "users",
+      foreignKey: "filament_id",
+    });
+  };
+
   return Filament;
 };

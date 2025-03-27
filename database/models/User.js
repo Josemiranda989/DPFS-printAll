@@ -9,9 +9,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     email: {
       type: DataTypes.STRING(255),
-      validate: {
-        unique: true,
-      },
+      // validate: {
+      //   unique: true,
+      // },
     },
     direction: {
       type: DataTypes.STRING,
@@ -24,6 +24,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     avatar: {
       type: DataTypes.STRING,
+    },
+    role: {
+      type: DataTypes.BOOLEAN,
+      DefaultValue: 0,
     },
   };
   const config = {

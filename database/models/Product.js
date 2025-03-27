@@ -1,3 +1,5 @@
+const Category = require("./Category");
+
 module.exports = (sequelize, DataTypes) => {
   const alias = "Product";
   const cols = {
@@ -19,6 +21,15 @@ module.exports = (sequelize, DataTypes) => {
     image: {
       type: DataTypes.STRING,
     },
+    // category_id: {
+    //   type: DataTypes.INTEGER(11),
+    // },
+    // filament_id: {
+    //   type: DataTypes.INTEGER(11),
+    // },
+    // size_id: {
+    //   type: DataTypes.INTEGER(11),
+    // },
   };
   const config = {
     tableName: "products",
@@ -27,7 +38,23 @@ module.exports = (sequelize, DataTypes) => {
 
   const Product = sequelize.define(alias, cols, config);
 
+  Product.associate = (model) => {
+    // Asociacion categorias
+    Product.belongsTo(model.Category, {
+      as: "category",
+      foreignKey: "category_id",
+    });
+    // Asociacion Filamentos
+    Product.belongsTo(model.Filament, {
+      as: "filament",
+      foreignKey: "filament_id",
+    });
+    // Asociacion categorias
+    Product.belongsTo(model.Size, {
+      as: "size",
+      foreignKey: "size_id",
+    });
+  };
+
   return Product;
 };
-
-//! Faltan atributos en la sincronización

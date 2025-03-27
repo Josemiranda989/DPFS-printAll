@@ -8,10 +8,6 @@
     <main class="container">
       <h1>Iniciar sesión</h1>
 
-      <% errorList.forEach(element => { %>
-      <p><%= element.msg %></p>
-      <% }) %>
-
       <form action="/users/login" method="post">
         <div>
           <label for="email">Email</label>
