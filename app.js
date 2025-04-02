@@ -7,6 +7,9 @@ const session = require("express-session");
 const userLogged = require("./middlewares/userLogged");
 const db = require("./database/models");
 const port = 4000;
+const cors = require("cors");
+
+app.use(cors());
 
 /* // Para ver logs de las peticiones
 const morgan = require("morgan");

@@ -11,8 +11,8 @@ module.exports = {
       const products = await Product.findAll({
         include: ["category", "size", "filament"],
       });
-      // res.json(products);
-      res.render("home.ejs", { products });
+      res.json(products);
+      // res.render("home.ejs", { products });
     } catch (error) {
       console.log(error);
     }
