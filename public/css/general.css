@@ -112,3 +112,10 @@ a {
   color: tomato;
   font-size: 0.7rem;
 }
+
+.display-error {
+  padding: 5px;
+  border: 1px solid red;
+  background-color: rgb(196, 196, 196);
+  font-size: 0.7rem;
+}
