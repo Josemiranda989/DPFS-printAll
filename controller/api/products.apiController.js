@@ -6,17 +6,49 @@ module.exports = {
       include: ["category", "size", "filament"],
       attributes: {
         exclude: ["size_id", "filament_id", "category_id"],
+        include: [
+          [
+            db.sequelize.literal(
+              `CONCAT('http://localhost:4000/images/products/', Product.image)`
+            ),
+            "urlAvatar",
+          ],
+          [
+            db.sequelize.literal(
+              `CONCAT('http://localhost:4000/api/products/detail/', Product.id)`
+            ),
+            "url",
+          ],
+        ],
       },
       // raw: true,
     });
 
-    products.forEach((prod) => {
-      prod.imagesUrl = `http://localhost:4000/images/products/${prod.images}`;
-      prod.url = `http://localhost:4000/api/products/detail/${prod.id}`;
+    let countByCategory = await db.Product.findAll({
+      attributes: [
+        "category_id",
+        [db.sequelize.fn("COUNT", db.sequelize.col("Product.id")), "count"],
+      ],
+      include: [
+        {
+          model: db.Category,
+          as: "category",
+          attributes: ["name"],
+        },
+      ],
+      group: ["category_id", "category.id"],
+      raw: true,
     });
+
+    // Transformar a objeto
+    let countObject = {};
+    countByCategory.forEach((item) => {
+      countObject[item["category.name"]] = parseInt(item.count);
+    });
+
     res.json({
       count: products.length,
-      //! countByCategory
+      countByCategory: countObject,
       products: products,
     });
   },
