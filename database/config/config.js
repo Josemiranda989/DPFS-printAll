@@ -1,9 +1,9 @@
 module.exports = {
   development: {
-    username: "root",
-    password: null,
-    database: "printalldb",
-    host: "127.0.0.1",
+    username: "410472_digitar",
+    password: "digitar1234!",
+    database: "digitalhouse_printall",
+    host: "mysql-digitalhouse.alwaysdata.net",
     dialect: "mysql",
   },
   test: {
