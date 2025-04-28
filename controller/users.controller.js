@@ -81,18 +81,28 @@ module.exports = {
   processRegister: async (req, res) => {
     //*ok
     try {
+      const resultValidation = validationResult(req);
+
       const { name, email, direction, phonenumber, password } = req.body;
-      let newUser = {
-        name,
-        email,
-        direction,
-        phonenumber,
-        password: bcryptjs.hashSync(password, 10),
-        avatar: req.file?.filename || "default.png",
-        role: 0,
-      };
-      await db.User.create(newUser);
-      res.redirect("/");
+
+      if (resultValidation.isEmpty()) {
+        let newUser = {
+          name,
+          email,
+          direction,
+          phonenumber,
+          password: bcryptjs.hashSync(password, 10),
+          avatar: req.file?.filename || "default.png",
+          role: 0,
+        };
+        await db.User.create(newUser);
+        res.redirect("/");
+      } else {
+        return res.render("users/register", {
+          errors: resultValidation.mapped(),
+          old: req.body,
+        });
+      }
     } catch (error) {
       console.log(error);
     }

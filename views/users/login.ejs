@@ -8,6 +8,8 @@
     <main class="container">
       <h1>Iniciar sesión</h1>
 
+      <ul class="errors"></ul>
+
       <form action="/users/login" method="post">
         <div>
           <label for="email">Email</label>
@@ -46,5 +48,9 @@
     </main>
     <!-- Footer -->
     <%- include('../partials/footer.ejs') %>
+    <!-- Script JS -->
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script src="/js/validations/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>
