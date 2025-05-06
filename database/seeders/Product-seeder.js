@@ -11,7 +11,7 @@ module.exports = {
           description: "Clip impreso en una sola pieza",
           price: 500,
           available: 1,
-          image: "default.jpg",
+          image: "default.png",
           category_id: 1,
           filament_id: 2,
           size_id: 3,

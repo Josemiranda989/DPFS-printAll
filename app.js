@@ -6,8 +6,10 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const userLogged = require("./middlewares/userLogged");
 const db = require("./database/models");
-const port = 4000;
 const cors = require("cors");
+require("dotenv").config();
+
+const port = process.env.PORT || 4000;
 
 app.use(cors());
 

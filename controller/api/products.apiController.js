@@ -9,13 +9,13 @@ module.exports = {
         include: [
           [
             db.sequelize.literal(
-              `CONCAT('http://localhost:4000/images/products/', Product.image)`
+              `CONCAT('${process.env.SV_HOST}:${process.env.PORT}/images/products/', Product.image)`
             ),
             "urlAvatar",
           ],
           [
             db.sequelize.literal(
-              `CONCAT('http://localhost:4000/api/products/detail/', Product.id)`
+              `CONCAT('${process.env.SV_HOST}:${process.env.PORT}/api/products/detail/', Product.id)`
             ),
             "url",
           ],
