@@ -1,3 +1,4 @@
+const { where } = require("sequelize");
 const db = require("../../database/models");
 
 module.exports = {
@@ -60,6 +61,22 @@ module.exports = {
         attributes: {
           exclude: ["size_id", "filament_id", "category_id"],
         },
+      });
+      // Paso 2
+      res.json(prodFound);
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  lastProduct: async (req, res) => {
+    try {
+      // Paso 1
+      let prodFound = await db.Product.findOne({
+        include: ["category", "size", "filament"],
+        attributes: {
+          exclude: ["size_id", "filament_id", "category_id"],
+        },
+        order: [["id", "DESC"]],
       });
       // Paso 2
       res.json(prodFound);

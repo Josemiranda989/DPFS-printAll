@@ -43,6 +43,7 @@ const usersRoutes = require("./routes/users.routes");
 // Api Routes
 const usersApiRoutes = require("./routes/api/users.apiRoutes");
 const productsApiRoutes = require("./routes/api/products.apiRoutes");
+const categoriesApiRoutes = require("./routes/api/categories.apiRoutes");
 
 app.use("/", mainRoutes);
 app.use("/products", productsRoutes);
@@ -50,6 +51,7 @@ app.use("/users", usersRoutes);
 
 app.use("/api/users", usersApiRoutes);
 app.use("/api/products", productsApiRoutes);
+app.use("/api/categories", categoriesApiRoutes);
 
 app.use(function (req, res) {
   res.status(404).render("not-found.ejs", { title: "No encontrado" });

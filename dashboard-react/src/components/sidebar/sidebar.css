@@ -1,0 +1,7 @@
+.sidebar img {
+  width: 200px;
+}
+
+.sidebar {
+  border-right: 2mm ridge rgba(211, 220, 50, 0.6);
+}
