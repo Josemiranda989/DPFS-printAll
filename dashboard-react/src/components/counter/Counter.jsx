@@ -5,19 +5,16 @@ export const Counter = () => {
   const [users, setUsers] = useState([]);
   const [categories, setCategories] = useState(null);
 
+  const fetchData = async (endpoint, setData) => {
+    let res = await fetch(endpoint);
+    let data = await res.json();
+    setData(data);
+  };
+
   useEffect(() => {
-    // setProducts(fetching("http://localhost:3000/api/products"));
-    fetch("http://localhost:3000/api/products")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-
-    fetch("http://localhost:3000/api/users")
-      .then((res) => res.json())
-      .then((data) => setUsers(data));
-
-    fetch("http://localhost:3000/api/categories")
-      .then((res) => res.json())
-      .then((data) => setCategories(data));
+    fetchData("http://localhost:3000/api/products", setProducts);
+    fetchData("http://localhost:3000/api/users", setUsers);
+    fetchData("http://localhost:3000/api/categories", setCategories);
   }, []);
 
   return (
